@@ -1,11 +1,13 @@
 import { FiSearch, FiBell } from "react-icons/fi";
 import AkatsukiLogo from "../../assets/AkatsukiLogo.png";
 
+
 const Navbar = () => {
 
     
   return (
     <div className="p-10 h-auto">
+      
         <nav className="flex items-center justify-between px-6 py-3 border-b bg-white shadow-sm">
       
      
