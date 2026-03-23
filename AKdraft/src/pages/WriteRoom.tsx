@@ -1,75 +1,63 @@
+import { useRef } from "react";
+
 const WriteRoom = () => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null); // ✅ FIX
+
+  const handleInput = () => {
+    const el = textareaRef.current;
+    if (!el) return;
+
+    el.style.height = "auto";
+    el.style.height = el.scrollHeight + "px";
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      
-      <div className="w-full max-w-4xl mt-1 bg-white rounded-2xl shadow-md p-7">
+    <div className="min-h-screen bg-gray-100 px-4 py-8">
+      <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-sm p-6">
         
-        
-        <h1 className="text-7xl font-semibold mb-4 text-gray-800">
+        <h1 className="text-3xl font-semibold text-gray-800 mb-4">
           Write Room
         </h1>
 
-        <hr className="mb-4" />
+        <input
+          placeholder="Title..."
+          className="w-full text-2xl font-medium mb-4 outline-none border-b pb-2 focus:border-red-400"
+        />
 
-       
-        <h2 className="text-3xl font-medium mb-3 text-gray-700">
-          Create a New Post
-        </h2>
-
-       
-        <div className="mb-3">
-          
-          <input
-          placeholder="Title"
-            id="title"
-            type="text"
-            className="w-full border text-3xl rounded-md px-5 py-5 outline-none focus:ring-2 focus:ring-red-400"
-          />
+        <div className="flex gap-4 text-gray-500 text-sm mb-2">
+          <button className="font-bold hover:text-black">B</button>
+          <button className="italic hover:text-black">I</button>
+          <button className="underline hover:text-black">U</button>
         </div>
 
-        
-        <div className="flex items-center gap-3 border rounded-t-md px-3 py-2 text-gray-600 text-sm bg-gray-50">
-          <span className="font-bold">B</span>
-          <span className="italic">I</span>
-          <span className="underline">U</span>
-        </div>
+        <textarea
+          ref={textareaRef}
+          onInput={handleInput}
+          placeholder="Start writing your story..."
+          rows={1}
+          className="w-full outline-none resize-none text-gray-700 mb-4 overflow-hidden"
+        />
 
-        
-        <div className="mb-4">
-          <textarea
-            aria-label="content"
-            rows={6}
-            className="w-full border h-100 border-t-0 rounded-b-md px-3 py-2 outline-none focus:ring-2 focus:ring-red-400"
-          />
-        </div>
+        <div className="flex items-center justify-between mb-4">
+          <button className="text-sm border px-3 py-1 rounded-md hover:bg-gray-100">
+            ⬆ Upload Image
+          </button>
 
-        {/* Upload */}
-        <button className="flex items-center text-2xl gap-2 border px-8 py-3 rounded-md mb-3 hover:bg-gray-100 transition">
-          ⬆ Upload Image
-        </button>
-
-        {/* Category */}
-        <div className="mb-6">
-          <select
-            aria-label="Category"
-            id="category"
-            className="w-full border text-2xl h-20 px-5 py-3 rounded-md outline-none focus:ring-2 focus:ring-red-400"
-          >
-            <option value="">Select Category</option>
+          <select className="text-sm border px-3 py-1 rounded-md outline-none">
+            <option value="">Category</option>
             <option value="anime">Anime</option>
             <option value="movies">Movies</option>
             <option value="series">Series</option>
           </select>
         </div>
 
-        {/* Buttons */}
         <div className="flex justify-end gap-3">
-          <button className="px-7 py-4 text-2xl border rounded-md hover:bg-gray-100 transition">
+          <button className="text-sm px-4 py-2 border rounded-md hover:bg-gray-100">
             Discard
           </button>
 
-          <button className="px-7 py-4 text-2xl bg-red-600 text-white rounded-md hover:bg-red-700 transition">
-            Post
+          <button className="text-sm px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">
+            Publish
           </button>
         </div>
 
