@@ -1,14 +1,14 @@
-import './App.css'
-import Navbar from './components/common/Navbar'
-import WriteRoom from './pages/WriteRoom'
+//import React from 'react'
+import Landing from './pages/Landing'
+import Home from './pages/Home'
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
-  
+const App = () => {
   return (
-    <div>
-      <Navbar />
-      <WriteRoom />
-    </div>
+    <Routes>
+      <Route path='/' element={<Landing />} />
+      <Route path='/home' element={<Home />} />
+    </Routes>
   )
 }
 
