@@ -1,48 +1,70 @@
 import { FiSearch, FiBell } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 import AkatsukiLogo from "../../assets/AkatsukiLogo.png";
 
-
 const Navbar = () => {
-
-    
   return (
-    <div className="p-10 h-auto">
+    <nav className="flex items-center justify-between px-8 py-4 bg-[#09090b] text-white border-b border-zinc-800 sticky top-0 z-50">
       
-        <nav className="flex items-center justify-between px-6 py-3 border-b bg-white shadow-sm">
-      
-     
-      <div className="flex items-center gap-2">
-        <img src={AkatsukiLogo} alt="Logo" className="w-28 object-contain" />
-      </div>
+      {/* Logo */}
+      <NavLink to="/">
+        <img
+          src={AkatsukiLogo}
+          alt="Logo"
+          className="w-12 h-12 object-contain cursor-pointer"
+        />
+      </NavLink>
 
-      <ul className="flex gap-10 font-medium text-4xl pb-2 ">
-        <li className="hover:scale-110  cursor-pointer">Home</li>
-        <li className="hover:scale-110 cursor-pointer">Write</li>
-        <li className="hover:scale-110 cursor-pointer">Vault</li>
-        <li className="hover:scale-110 cursor-pointer">Explore</li>
+      {/* Links */}
+      <ul className="flex items-center gap-10 font-semibold">
+
+        <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            isActive ? "text-white border-b-2 border-red-600 pb-1" : "text-zinc-400 hover:text-white"
+          }
+        >
+          Home
+        </NavLink>
+
+        <NavLink
+          to="/write"
+          className={({ isActive }) =>
+            isActive ? "text-white border-b-2 border-red-600 pb-1" : "text-zinc-400 hover:text-white"
+          }
+        >
+          Write
+        </NavLink>
+
+        <NavLink
+          to="/vault"
+          className={({ isActive }) =>
+            isActive ? "text-white border-b-2 border-red-600 pb-1" : "text-zinc-400 hover:text-white"
+          }
+        >
+          Vault
+        </NavLink>
+
       </ul>
 
+      {/* Right */}
       <div className="flex items-center gap-6">
-        <div className="flex items-center bg-gray-100 px-4 py-3 rounded-lg">
-          <FiSearch className="text-gray-500 mr-2" />
-          <input
-            type="text"
-            placeholder="Search..."
-            className="bg-transparent outline-none text-lg"
+        <FiSearch className="text-xl text-zinc-400 hover:text-white cursor-pointer" />
+
+        <div className="relative">
+          <FiBell className="text-xl text-zinc-400 hover:text-white cursor-pointer" />
+          <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-600 rounded-full"></span>
+        </div>
+
+        <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-700">
+          <img
+            src="https://via.placeholder.com/150"
+            alt="User"
+            className="w-full h-full object-cover"
           />
         </div>
-
-        
-        <div className="relative cursor-pointer">
-          <FiBell className="text-5xl text-gray-700 hover:text-black transition" />
-          <span className="absolute -top-1 -right-2 bg-red-500 text-white text-xs px-1.5 rounded-full">
-            
-          </span>
-        </div>
       </div>
-
     </nav>
-    </div>
   );
 };
 

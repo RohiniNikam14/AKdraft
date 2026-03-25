@@ -1,78 +1,89 @@
+import Navbar from "../components/common/Navbar";
+
 const WriteRoom = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="bg-[#09090b] min-h-screen relative overflow-hidden text-white">
       
-      <div className="w-full max-w-4xl mt-1 bg-white rounded-2xl shadow-md p-7">
+      <Navbar />
+
+      {/* Background Glow */}
+      <div className="absolute w-60 h-60 bg-red-800 blur-3xl opacity-20 top-10 left-10"></div>
+      <div className="absolute w-60 h-60 bg-red-700 blur-3xl opacity-20 bottom-10 right-10"></div>
+
+      {/* Content */}
+      <div className="relative z-10 flex justify-center px-4 py-6">
         
-        
-        <h1 className="text-7xl font-semibold mb-4 text-gray-800">
-          Write Room
-        </h1>
-
-        <hr className="mb-4" />
-
-       
-        <h2 className="text-3xl font-medium mb-3 text-gray-700">
-          Create a New Post
-        </h2>
-
-       
-        <div className="mb-3">
+        <div className="w-full max-w-3xl bg-zinc-900 border border-zinc-800 rounded-xl shadow-md p-5">
           
-          <input
-          placeholder="Title"
-            id="title"
-            type="text"
-            className="w-full border text-3xl rounded-md px-5 py-5 outline-none focus:ring-2 focus:ring-red-400"
-          />
-        </div>
+          {/* Heading */}
+          <h1 className="text-3xl font-semibold mb-3">
+            Write Room
+          </h1>
 
-        
-        <div className="flex items-center gap-3 border rounded-t-md px-3 py-2 text-gray-600 text-sm bg-gray-50">
-          <span className="font-bold">B</span>
-          <span className="italic">I</span>
-          <span className="underline">U</span>
-        </div>
+          <hr className="mb-3 border-zinc-700" />
 
-        
-        <div className="mb-4">
-          <textarea
-            aria-label="content"
-            rows={6}
-            className="w-full border h-100 border-t-0 rounded-b-md px-3 py-2 outline-none focus:ring-2 focus:ring-red-400"
-          />
-        </div>
+          {/* Subheading */}
+          <h2 className="text-lg font-medium mb-2 text-zinc-300">
+            Create a New Post
+          </h2>
 
-        {/* Upload */}
-        <button className="flex items-center text-2xl gap-2 border px-8 py-3 rounded-md mb-3 hover:bg-gray-100 transition">
-          ⬆ Upload Image
-        </button>
+          {/* Title */}
+          <div className="mb-2">
+            <input
+              placeholder="Title"
+              id="title"
+              type="text"
+              className="w-full bg-zinc-800 border border-zinc-700 text-lg rounded-md px-4 py-3 outline-none focus:ring-2 focus:ring-red-500"
+            />
+          </div>
 
-        {/* Category */}
-        <div className="mb-6">
-          <select
-            aria-label="Category"
-            id="category"
-            className="w-full border text-2xl h-20 px-5 py-3 rounded-md outline-none focus:ring-2 focus:ring-red-400"
-          >
-            <option value="">Select Category</option>
-            <option value="anime">Anime</option>
-            <option value="movies">Movies</option>
-            <option value="series">Series</option>
-          </select>
-        </div>
+          {/* Toolbar */}
+          <div className="flex items-center gap-3 border border-zinc-700 rounded-t-md px-3 py-2 text-zinc-400 text-sm bg-zinc-800">
+            <span className="font-bold cursor-pointer hover:text-white">B</span>
+            <span className="italic cursor-pointer hover:text-white">I</span>
+            <span className="underline cursor-pointer hover:text-white">U</span>
+          </div>
 
-        {/* Buttons */}
-        <div className="flex justify-end gap-3">
-          <button className="px-7 py-4 text-2xl border rounded-md hover:bg-gray-100 transition">
-            Discard
+          {/* Content */}
+          <div className="mb-3">
+            <textarea
+              aria-label="content"
+              rows={5}
+              className="w-full bg-zinc-800 border border-zinc-700 border-t-0 rounded-b-md px-3 py-2 outline-none focus:ring-2 focus:ring-red-500"
+            />
+          </div>
+
+          {/* Upload */}
+          <button className="flex items-center text-base gap-2 border border-zinc-700 px-5 py-2 rounded-md mb-3 hover:bg-zinc-800 transition">
+            ⬆ Upload Image
           </button>
 
-          <button className="px-7 py-4 text-2xl bg-red-600 text-white rounded-md hover:bg-red-700 transition">
-            Post
-          </button>
-        </div>
+          {/* Category */}
+          <div className="mb-4">
+            <select
+              aria-label="Category"
+              id="category"
+              className="w-full bg-zinc-800 border border-zinc-700 text-base px-4 py-2 rounded-md outline-none focus:ring-2 focus:ring-red-500"
+            >
+              <option value="">Select Category</option>
+              <option value="anime">Anime</option>
+              <option value="movies">Movies</option>
+              <option value="series">Series</option>
+            </select>
+          </div>
 
+          {/* Buttons */}
+          <div className="flex justify-end gap-2">
+            <button className="px-4 py-2 text-sm border border-zinc-600 rounded-md hover:bg-zinc-800 transition">
+              Discard
+            </button>
+
+            <button className="px-4 py-2 text-sm bg-red-600 text-white rounded-md hover:bg-red-700 transition">
+              Post
+            </button>
+          </div>
+
+        </div>
       </div>
     </div>
   );
